@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seu Negócio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b0b0b;
+  color: white;
+}
+
+header {
+  background: black;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid red;
+}
+
+h1 { color: red; }
+
+nav {
+  margin-top: 10px;
+}
+
+nav button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+
+.section {
+  display: none;
+  padding: 20px;
+}
+
+.active {
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+  width: 250px;
+}
+
+.preco {
+  color: red;
+  font-size: 26px;
+}
+
+button.buy {
+  background: red;
+  padding: 10px;
+  border: none;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+}
+
+.login {
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.whatsapp a {
+  background: green;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+</style>
+
+<script>
+function show(section) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(section).classList.add('active');
+}
+
+function login() {
+  let user = document.getElementById('user').value;
+  let pass = document.getElementById('pass').value;
+
+  if(user === "admin" && pass === "1234"){
+    alert("Login realizado!");
+    show('area');
+  } else {
+    alert("Senha incorreta");
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <h1>SEU NEGÓCIO</h1>
+  <p>Venda online automaticamente</p>
+
+  <nav>
+    <button onclick="show('home')">Planos</button>
+    <button onclick="show('login')">Área do Cliente</button>
+  </nav>
+</header>
+
+<div id="home" class="section active">
+  <h2 style="text-align:center;">Escolha seu plano</h2>
+
+  <div class="container">
+
+    <div class="card">
+      <h3>Básico</h3>
+      <p class="preco">R$ 99</p>
+      <a href="LINK1"><button class="buy">Comprar</button></a>
+    </div>
+
+    <div class="card">
+      <h3>Padrão</h3>
+      <p class="preco">R$ 199</p>
+      <a href="LINK2"><button class="buy">Comprar</button></a>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <p class="preco">R$ 299</p>
+      <a href="LINK3"><button class="buy">Comprar</button></a>
+    </div>
+
+  </div>
+</div>
+
+<div id="login" class="section login">
+  <h2>Área do Cliente</h2>
+  <input type="text" id="user" placeholder="Usuário"><br>
+  <input type="password" id="pass" placeholder="Senha"><br>
+  <button onclick="login()">Entrar</button>
+</div>
+
+<div id="area" class="section">
+  <h2>Bem-vindo!</h2>
+  <p>Aqui você pode acessar seus conteúdos.</p>
+</div>
+
+<div class="whatsapp">
+  <a href="https://wa.me/5500000000000">W</a>
